@@ -1,0 +1,146 @@
+<div class="p-6 bg-blue-300 dark:bg-gradient-to-r dark:from-violet-900 dark:to-purple-900 dark:animate-gradient  dark:text-gray-200 rounded min-h-screen">
+  <!-- Page Title -->
+  <h1 class="text-2xl font-bold mb-6">📊 Dashboard</h1>
+
+  <!-- Metrics Section -->
+  <div class="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+    
+<!-- Total Employees -->
+<div
+  class="card bg-blue-600 dark:bg-blue-800 text-white dark:text-gray-200 
+         p-6 rounded-lg shadow-md flex items-center justify-between 
+         transform transition duration-300 hover:scale-105 hover:shadow-lg"
+>
+  <div>
+    <h2 class="text-lg font-semibold">Total Employees</h2>
+    <p class="text-3xl font-bold mt-2">{{ totalEmployees }}</p>
+  </div>
+  <div>
+    <!-- 👥 People Icon -->
+    <svg xmlns="http://www.w3.org/2000/svg" 
+         class="w-12 h-12 text-white dark:text-blue-400" 
+         fill="white" 
+         viewBox="0 0 24 24">
+      <path d="M16 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 
+               1.34-3 3 1.34 3 3 3zm-8 
+               0c1.66 0 3-1.34 3-3S9.66 5 8 5 
+               5 6.34 5 8s1.34 3 3 3zm0 
+               2c-2.33 0-7 1.17-7 3.5V20h14v-3.5C15 
+               14.17 10.33 13 8 13zm8 
+               0c-.29 0-.62.02-.97.05 1.16.84 
+               1.97 1.97 1.97 3.45V20h6v-3.5c0-2.33-4.67-3.5-7-3.5z"/>
+    </svg>
+  </div>
+</div>
+
+
+<!-- Recently Added -->
+<div
+  class=" card bg-green-500 dark:bg-green-600 text-white p-6 rounded-lg shadow-md flex items-center justify-between transform transition duration-300 hover:scale-105 hover:shadow-lg"
+>
+  <div>
+    <h2 class="text-lg font-semibold">Recently Added</h2>
+    <p class="text-3xl font-bold mt-2">{{ recentEmployees.length }}</p>
+  </div>
+  <div>
+    <!-- ➕ User Add Icon -->
+    <svg xmlns="http://www.w3.org/2000/svg" 
+         class="w-12 h-12 text-white dark:text-blue-400" 
+         fill="white" 
+         viewBox="0 0 24 24">
+      <path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 
+               1.79-4 4 1.79 4 4 4zm0 
+               2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4zM4 
+               12v-2H2v2H0v2h2v2h2v-2h2v-2H4z"/>
+    </svg>
+  </div>
+</div>
+
+<!-- Active Projects -->
+<div
+  class=" card bg-yellow-400 dark:bg-yellow-500 text-white p-6 rounded-lg shadow-md flex items-center justify-between transform transition duration-300 hover:scale-105 hover:shadow-lg"
+>
+  <div>
+    <h2 class="text-lg font-semibold">Active Projects</h2>
+    <p class="text-3xl font-bold mt-2">5</p>
+  </div>
+  <div>
+    <!-- 📂 Folder/Projects Icon -->
+    <svg xmlns="http://www.w3.org/2000/svg" 
+         class="w-12 h-12 text-white dark:text-blue-400" 
+         fill="white" 
+         viewBox="0 0 24 24">
+      <path d="M10 4H2v16h20V6H12l-2-2z"/>
+    </svg>
+  </div>
+</div>
+
+  </div>
+
+  <!-- Recent Employees -->
+<div class="bg-white dark:bg-gradient-to-r dark:from-purple-800 dark:to-violet-900  p-6 rounded-lg shadow-md">
+  <h2 class="text-xl font-semibold mb-4 dark:text-gray-200">🆕 Recently Added Employees</h2>
+
+  <table class="w-full border border-gray-200 dark:border-gray-800 rounded-lg overflow-hidden">
+    <thead class="bg-blue-600 dark:bg-gray-900  text-white">
+      <tr class="dark:bg-purple-900 " >
+        <th class=" text-gray-800 dark:text-gray-200 p-2">Name</th>
+        <th class=" text-gray-800 dark:text-gray-200 p-2">Email</th>
+        <th class=" text-gray-800 dark:text-gray-200 p-2">Role</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let user of recentEmployees"
+        (click)="goToUserDetails(user._id)"
+        class="odd:bg-blue-50 even:bg-blue-100 hover:bg-blue-200 dark:bg-violet-800 dark:even:bg-purple-700 dark:hover:bg-blue-800 hover:shadow-md transition duration-200 cursor-pointer"
+      >
+        <td class=" p-2">{{ user.name }}</td>
+        <td class=" p-2">{{ user.email }}</td>
+        <td class=" p-2">{{ user.role }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  <!-- 📊 Chart Section -->
+<div class="bg-white dark:bg-indigo-900 p-6 rounded-lg shadow-md mt-6">
+  <h2 class="text-xl font-semibold mb-4">📈 Analytics Chart</h2>
+
+  <!-- Controls -->
+  <div class="flex flex-wrap gap-4 mb-4">
+    <!-- Chart Type -->
+    <div>
+      <label class="font-semibold">Chart Type:</label>
+      <select [(ngModel)]="chartType" class="border p-2 dark:bg-gray-700 rounded ml-2">
+        <option [ngValue]="'bar'">Bar</option>
+        <option [ngValue]="'line'">Line</option>
+        <option [ngValue]="'pie'">Pie</option>
+        <option [ngValue]="'doughnut'">Doughnut</option>
+      </select>
+
+    </div>
+
+    <!-- Width -->
+    <div>
+      <label class="font-semibold">Width:</label>
+      <input type="number" [(ngModel)]="chartWidth" class="border p-2 rounded ml-2 w-20 dark:bg-gray-700" />
+    </div>
+
+    <!-- Height -->
+    <div>
+      <label class="font-semibold">Height:</label>
+      <input type="number" [(ngModel)]="chartHeight" class="border p-2 rounded ml-2 w-20 dark:bg-gray-700" />
+    </div>
+  </div>
+
+  <!-- Chart -->
+  <div [style.width.px]="chartWidth" [style.height.px]="chartHeight" class="mx-auto">
+    <canvas baseChart
+      [data]="chartData"
+      [type]="chartType"
+      [options]="chartOptions">
+    </canvas>
+  </div>
+</div>
+
+</div>

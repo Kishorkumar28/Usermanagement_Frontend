@@ -1,0 +1,10 @@
+<div *ngIf="user" class="max-w-md mx-auto bg-white rounded-xl shadow-lg p-6">
+  <h2 class="text-2xl font-bold mb-2">{{ user.name }}</h2>
+  <p class="text-gray-600">{{ user.email }}</p>
+  <p class="text-sm text-gray-500 mb-4">Role: {{ user.role }}</p>
+  <p class="text-xs text-gray-400">Joined: {{ user.createdAt | date }}</p>
+
+  <div class="mt-4">
+    <a routerLink="/users" class="text-indigo-600">← Back to Users</a>
+  </div>
+</div>
