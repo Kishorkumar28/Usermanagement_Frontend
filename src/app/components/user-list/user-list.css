@@ -1,8 +1,61 @@
-::ng-deep .mat-header-cell {
-  background-color: #3b82f6 !important; /* blue-500 */
-  color: white !important;
+/* table layout */
+::ng-deep .mat-mdc-table {
+  @apply table-fixed w-full;
 }
 
-::ng-deep .mat-cell {
-  background-color: #dbeafe; /* blue-100 */
+/* Name column */
+::ng-deep .mat-column-name {
+  @apply w-48 px-4 text-left !important;
 }
+
+/* Email column */
+::ng-deep .mat-column-email {
+  @apply w-72 px-4 text-left  !important;
+}
+
+/* Role column */
+::ng-deep .mat-column-role {
+  @apply w-32 px-2 text-left  !important;
+}
+
+/* Mobile column */
+::ng-deep .mat-column-mobile {
+  @apply w-40 px-2 text-left  !important;
+}
+
+/* Department column */
+::ng-deep .mat-column-department {
+  @apply w-40 px-2 text-left  !important;
+}
+
+/* Status column */
+::ng-deep .mat-column-status {
+  @apply w-32 px-2 text-left  !important;
+}
+
+/* Actions column */
+::ng-deep .mat-column-actions {
+  @apply w-32 px-2 text-center  !important;
+}
+
+::ng-deep .mat-mdc-cell {
+  @apply truncate overflow-hidden whitespace-nowrap;
+}
+
+/*Select panel - paginator*/
+::ng-deep .mat-mdc-select-panel {
+  @apply text-white rounded-lg shadow-lg;
+}
+
+::ng-deep .mat-mdc-option {
+  @apply bg-violet-500 text-white hover:bg-violet-600 dark:bg-violet-600 dark:hover:bg-violet-700;
+}
+
+::ng-deep .mat-mdc-cell {
+  @apply border-0 !important;  /* removes any default cell borders */
+}
+
+::ng-deep .mat-mdc-header-cell {
+  @apply border-0 !important;
+}
+
