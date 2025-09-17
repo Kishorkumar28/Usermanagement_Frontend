@@ -11,10 +11,13 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { MatGridListModule } from '@angular/material/grid-list';
+
 @Component({
   selector: 'app-user-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule,MatFormFieldModule,MatInputModule,MatSelectModule,MatButtonModule, MatCardModule,MatIconModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatButtonModule,
+     MatCardModule, MatIconModule, MatGridListModule],
   templateUrl: './user-form.html'
 })
 export class UserFormComponent implements OnInit {
