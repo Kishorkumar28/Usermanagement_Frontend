@@ -59,4 +59,98 @@
   @apply border-0 text-center !important;
 }
 
+/* 🌞 Light theme paginator buttons */
+::ng-deep .mat-mdc-paginator .mat-mdc-icon-button {
+  @apply text-black bg-blue-100 rounded-full transition duration-200;
+}
 
+::ng-deep .mat-mdc-paginator .mat-mdc-icon-button:hover {
+  @apply bg-blue-200;
+}
+/* 🌞 Light theme paginator arrows */
+::ng-deep .mat-mdc-paginator .mat-mdc-icon-button .mat-mdc-paginator-icon {
+  fill: black !important; /* violet-600 */
+  width: 20px;
+  height: 20px;
+}
+
+/* 🌙 Dark theme paginator arrows */
+:host-context(.dark) ::ng-deep .mat-mdc-paginator .mat-mdc-icon-button .mat-mdc-paginator-icon {
+  fill: #ffffff !important; /* white */
+  width: 20px;
+  height: 20px;
+}
+
+/* 🌞 Light theme disabled arrows */
+::ng-deep .mat-mdc-paginator .mat-mdc-icon-button:disabled .mat-mdc-paginator-icon {
+  fill: #9ca3af !important; /* Tailwind gray-400 */
+  opacity: 0.6;             /* faded look */
+}
+
+/* 🌙 Dark theme disabled arrows */
+:host-context(.dark) ::ng-deep .mat-mdc-paginator .mat-mdc-icon-button:disabled .mat-mdc-paginator-icon {
+  fill: #6b7280 !important; /* Tailwind gray-500 */
+  opacity: 0.5;
+}
+
+
+/* 🌙 Dark theme paginator buttons */
+:host-context(.dark) ::ng-deep .mat-mdc-paginator .mat-mdc-icon-button {
+  @apply text-white bg-violet-600 rounded-full transition duration-200;
+}
+
+:host-context(.dark) ::ng-deep .mat-mdc-paginator .mat-mdc-icon-button:hover {
+  @apply bg-violet-700;
+}
+
+
+
+/* 🌞 Light theme paginator select (trigger) */
+::ng-deep .mat-mdc-paginator .mat-mdc-select-trigger {
+  @apply text-black bg-blue-100 rounded-md px-2 py-1;
+}
+
+/* 🌙 Dark theme paginator select (trigger) */
+:host-context(.dark) ::ng-deep .mat-mdc-paginator .mat-mdc-select-trigger {
+  @apply text-white bg-violet-700 rounded-md px-2 py-1;
+}
+
+/* 🌞 Light theme options dropdown */
+::ng-deep .mat-mdc-select-panel {
+  @apply !bg-blue-200 text-violet-600 shadow-lg rounded-lg;
+}
+
+/* 🌙 Dark theme options dropdown */
+:host-context(.dark) ::ng-deep .mat-mdc-select-panel {
+  @apply bg-red-800 text-white shadow-lg rounded-lg;
+}
+
+
+
+/* 🌞 Light theme option items */
+/* ::ng-deep .mat-mdc-option {
+  @apply text-violet-600 hover:bg-violet-100;
+} */
+
+/* 🌙 Dark theme option items */
+/* :host-context(.dark) ::ng-deep .mat-mdc-option {
+  @apply text-white hover:bg-violet-600;
+} */
+
+/*  Remove only the black border outline from paginator select */
+::ng-deep .mat-mdc-paginator .mdc-notched-outline {
+  border: none !important;
+  display: none !important;
+}
+
+/* Remove the blue highlight "focus overlay" */
+::ng-deep .mat-mdc-paginator .mat-mdc-form-field-focus-overlay {
+  background: transparent !important;
+}
+
+/*paginator layout shifting */
+::ng-deep .mat-mdc-paginator-range-label {
+  display: inline-block;
+  min-width: 120px; 
+  text-align: center; 
+}

@@ -5,11 +5,16 @@ import { Router, ActivatedRoute, RouterModule } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { User } from '../../services/user';
 import Swal from 'sweetalert2';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-user-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule,MatFormFieldModule,MatInputModule,MatSelectModule,MatButtonModule, MatCardModule,MatIconModule],
   templateUrl: './user-form.html'
 })
 export class UserFormComponent implements OnInit {
