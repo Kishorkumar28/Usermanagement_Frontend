@@ -5,12 +5,12 @@
 
 /* Name column */
 ::ng-deep .mat-column-name {
-  @apply w-52 text-left !important;
+  @apply w-64 text-left !important;
 }
 
 /* Email column */
 ::ng-deep .mat-column-email {
-  @apply w-64  text-left truncate overflow-hidden whitespace-nowrap  !important;
+  @apply min-w-[50px] max-w-[156px] text-left truncate overflow-hidden whitespace-nowrap  !important;
 }
 
 /* Role column */
