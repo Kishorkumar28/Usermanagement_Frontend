@@ -5,37 +5,37 @@
 
 /* Name column */
 ::ng-deep .mat-column-name {
-  @apply w-52 px-4 text-left !important;
+  @apply w-52 text-left !important;
 }
 
 /* Email column */
 ::ng-deep .mat-column-email {
-  @apply w-64 px-4 text-left  !important;
+  @apply w-64  text-left truncate overflow-hidden whitespace-nowrap  !important;
 }
 
 /* Role column */
 ::ng-deep .mat-column-role {
-  @apply w-28 px-2 text-left  !important;
+  @apply w-28  text-left  !important;
 }
 
 /* Mobile column */
 ::ng-deep .mat-column-mobile {
-  @apply w-32 px-2 text-left !important;
+  @apply w-32  text-left !important;
 }
 
 /* Department column */
 ::ng-deep .mat-column-department {
-  @apply w-32 px-2 text-left !important;
+  @apply w-32  text-left !important;
 }
 
 /* Status column */
 ::ng-deep .mat-column-status {
-  @apply w-32 px-2 text-left  !important;
+  @apply w-32  text-left  !important;
 }
 
 /* Actions column */
 ::ng-deep .mat-column-actions {
-  @apply w-32 px-2 text-center  !important;
+  @apply w-32 text-center  !important;
 }
 
 ::ng-deep .mat-mdc-cell {
@@ -48,7 +48,7 @@
 }
 
 ::ng-deep .mat-mdc-option {
-  @apply bg-violet-500 text-white hover:bg-violet-600 dark:bg-violet-600 dark:hover:bg-violet-700;
+  @apply bg-violet-500 text-black hover:bg-violet-600 dark:bg-violet-600 dark:hover:bg-violet-700;
 }
 
 ::ng-deep .mat-mdc-cell {
