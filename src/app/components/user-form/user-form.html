@@ -1,4 +1,5 @@
-<div class="p-6 max-w-xl mx-auto bg-gradient-to-br from-blue-300 to-blue-200 dark:from-violet-900 dark:to-purple-900 dark:text-white  shadow-lg rounded-xl">
+<div
+  class="p-6 max-w-xl mx-auto bg-gradient-to-br from-blue-300 to-blue-200 dark:from-violet-900 dark:to-purple-900 dark:text-white shadow-lg rounded-xl">
   <h2 class="text-xl font-bold mb-2 text-gray-800 border-b pb-2 dark:text-gray-200">
     {{ userId ? '✏️ Edit User' : '➕ Add New User' }}
   </h2>
@@ -9,38 +10,65 @@
     <div>
       <label class="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-200">Full Name</label>
       <input formControlName="name" placeholder="Enter full name"
+        [ngClass]="{ 'border-red-500': isInvalid('name') }"
         class="w-full border rounded-lg p-2.5 focus:ring-2 focus:ring-blue-400 focus:outline-none dark:bg-gray-800" />
+      <p class="text-red-500 text-sm mt-1" *ngIf="isInvalid('name')">
+        Name is required.
+      </p>
+      <p class="text-red-500 text-sm mt-1" *ngIf="isInvalid('name','minlength')">
+        Name must be at least 3 characters.
+      </p>
     </div>
 
     <!-- Email -->
     <div>
       <label class="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-200">Email</label>
       <input formControlName="email" type="email" placeholder="Enter email address"
+        [ngClass]="{ 'border-red-500': isInvalid('email') }"
         class="w-full border rounded-lg p-2.5 focus:ring-2 focus:ring-blue-400 focus:outline-none dark:bg-gray-800" />
+      <p class="text-red-500 text-sm mt-1" *ngIf="isInvalid('email')">
+        Email is required.
+      </p>
+      <p class="text-red-500 text-sm mt-1" *ngIf="isInvalid('email','email')">
+        Enter a valid email address.
+      </p>
     </div>
 
     <!-- Role -->
     <div>
       <label class="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-200">Role</label>
       <select formControlName="role"
+        [ngClass]="{ 'border-red-500': isInvalid('role') }"
         class="w-full border rounded-lg p-2.5 bg-white focus:ring-2 focus:ring-blue-400 focus:outline-none dark:bg-gray-800">
+        <option value="">-- Select Role --</option>
         <option value="Admin">Admin</option>
         <option value="Editor">Editor</option>
         <option value="Viewer">Viewer</option>
       </select>
+      <p class="text-red-500 text-sm mt-1" *ngIf="isInvalid('role')">
+        Role is required.
+      </p>
     </div>
 
     <!-- Mobile -->
     <div>
       <label class="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-200">Mobile Number</label>
       <input formControlName="mobile" placeholder="Enter mobile number"
+        [ngClass]="{ 'border-red-500': isInvalid('mobile') }"
         class="w-full border rounded-lg p-2.5 focus:ring-2 focus:ring-blue-400 focus:outline-none dark:bg-gray-800" />
+      <p class="text-red-500 text-sm mt-1" *ngIf="isInvalid('mobile')">
+        Mobile number is required.
+      </p>
+      <p class="text-red-500 text-sm mt-1" *ngIf="isInvalid('mobile','pattern')">
+        Mobile number must be 10 digits.
+      </p>
     </div>
 
     <!-- Department -->
     <div>
       <label class="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-200">Department</label>
       <select formControlName="department"
+        [ngClass]="{ 'border-red-500': isInvalid('department') }"
         class="w-full border rounded-lg p-2.5 bg-white focus:ring-2 focus:ring-blue-400 focus:outline-none dark:bg-gray-800">
         <option value="">-- Select Department --</option>
         <option value="HR">HR</option>
@@ -49,23 +77,38 @@
         <option value="Marketing">Marketing</option>
         <option value="Sales">Sales</option>
       </select>
+      <p class="text-red-500 text-sm mt-1" *ngIf="isInvalid('department')">
+        Department is required.
+      </p>
     </div>
 
     <!-- Address -->
     <div>
       <label class="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-200">Address</label>
       <textarea formControlName="address" placeholder="Enter address"
+        [ngClass]="{ 'border-red-500': isInvalid('address') }"
         class="w-full border rounded-lg p-2.5 focus:ring-2 focus:ring-blue-400 focus:outline-none dark:bg-gray-800"></textarea>
+      <p class="text-red-500 text-sm mt-1" *ngIf="isInvalid('address')">
+        Address is required.
+      </p>
+      <p class="text-red-500 text-sm mt-1" *ngIf="isInvalid('address','minlength')">
+        Address must be at least 10 characters.
+      </p>
     </div>
 
     <!-- Status -->
     <div>
       <label class="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-200">Status</label>
       <select formControlName="status"
+        [ngClass]="{ 'border-red-500': isInvalid('status') }"
         class="w-full border rounded-lg p-2.5 bg-white focus:ring-2 focus:ring-blue-400 focus:outline-none dark:bg-gray-800">
+        <option value="">-- Select Status --</option>
         <option value="Active">Active</option>
         <option value="Inactive">Inactive</option>
       </select>
+      <p class="text-red-500 text-sm mt-1" *ngIf="isInvalid('status')">
+        Status is required.
+      </p>
     </div>
 
     <!-- Buttons -->

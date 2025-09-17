@@ -1,4 +1,4 @@
-<div class="p-6 bg-blue-300 dark:bg-gray-900 text-white dark:text-gray-100 rounded min-h-screen">
+<div class="p-6 bg-blue-300 dark:bg-gray-700 text-white dark:text-gray-100 rounded min-h-screen">
 
   <!-- Header + Add User + Search -->
   <div class="flex justify-between items-center mb-6">
@@ -10,81 +10,84 @@
 
     <input [formControl]="searchControl"
            placeholder="Search users..."
-           class="border p-2 rounded w-64 focus:ring focus:ring-blue-200 text-black"/>
+           class="border p-2 rounded w-64 focus:ring focus:ring-blue-200 text-black "/>
   </div>
 
   <!-- Material Table -->
-  <table mat-table [dataSource]="dataSource"
-         matSort
-         (matSortChange)="onSortChange($event) "
-         class="bg-blue-300">
+   <div class="overflow-hidden rounded-2xl shadow">
+    <table mat-table [dataSource]="dataSource"
+          matSort
+          (matSortChange)="onSortChange($event) "
+          
+            >
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header class="bg-blue-500 !important" >Name</th>
-      <td mat-cell *matCellDef="let user">{{ user.name }}</td>
-    </ng-container>
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header  >Name</th>
+        <td mat-cell *matCellDef="let user">{{ user.name }}</td>
+      </ng-container>
 
-    <!-- Email Column -->
-    <ng-container matColumnDef="email">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
-      <td mat-cell *matCellDef="let user">{{ user.email }}</td>
-    </ng-container>
+      <!-- Email Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+        <td mat-cell *matCellDef="let user">{{ user.email }}</td>
+      </ng-container>
 
-    <!-- Role Column -->
-    <ng-container matColumnDef="role">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Role</th>
-      <td mat-cell *matCellDef="let user">{{ user.role }}</td>
-    </ng-container>
+      <!-- Role Column -->
+      <ng-container matColumnDef="role">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Role</th>
+        <td mat-cell *matCellDef="let user">{{ user.role }}</td>
+      </ng-container>
 
-    <!-- Mobile Column -->
-    <ng-container matColumnDef="mobile">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Mobile</th>
-      <td mat-cell *matCellDef="let user">{{ user.mobile }}</td>
-    </ng-container>
+      <!-- Mobile Column -->
+      <ng-container matColumnDef="mobile">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Mobile</th>
+        <td mat-cell *matCellDef="let user">{{ user.mobile }}</td>
+      </ng-container>
 
-    <!-- Department Column -->
-    <ng-container matColumnDef="department">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Department</th>
-      <td mat-cell *matCellDef="let user">{{ user.department }}</td>
-    </ng-container>
+      <!-- Department Column -->
+      <ng-container matColumnDef="department">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Department</th>
+        <td mat-cell *matCellDef="let user">{{ user.department }}</td>
+      </ng-container>
 
-    <!-- Status Column -->
-    <ng-container matColumnDef="status">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
-      <td mat-cell *matCellDef="let user">
-        <span [ngClass]="user.status === 'Active' ? 'text-green-600' : 'text-red-600'">
-          {{ user.status }}
-        </span>
-      </td>
-    </ng-container>
+      <!-- Status Column -->
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+        <td mat-cell *matCellDef="let user">
+          <span [ngClass]="user.status === 'Active' ? 'text-green-600' : 'text-red-600'">
+            {{ user.status }}
+          </span>
+        </td>
+      </ng-container>
 
-    <!-- Actions Column -->
-    <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef>Actions</th>
-      <td mat-cell *matCellDef="let user">
-        <button mat-icon-button color="primary" class=" hover:bg-blue-100 text-white rounded " [routerLink]="['/users/view', user._id]">
-          <mat-icon>visibility</mat-icon>
-        </button>
-        <button mat-icon-button color="accent" class="hover:bg-yellow-100" [routerLink]="['/users/edit', user._id]">
-          <mat-icon>edit</mat-icon>
-        </button>
-        <button mat-icon-button color="warn" class="hover:bg-red-100" (click)="deleteUser(user._id)">
-          <mat-icon>delete</mat-icon>
-        </button>
-      </td>
-    </ng-container>
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let user">
+          <button mat-icon-button color="primary" class=" hover:bg-blue-100 text-white rounded " [routerLink]="['/users/view', user._id]">
+            <mat-icon>visibility</mat-icon>
+          </button>
+          <button mat-icon-button color="accent" class="hover:bg-yellow-100" [routerLink]="['/users/edit', user._id]">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" class="hover:bg-red-100" (click)="deleteUser(user._id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
 
-    <!-- Table Header & Rows -->
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-
+      <!-- Table Header & Rows -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns" class="dark:bg-violet-900 !bg-blue-500  !text-white !dark:text-black"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="!dark:border-b !dark:border-blue-400 odd:bg-blue-50 even:bg-blue-100 hover:bg-blue-200 dark:bg-violet-500 dark:even:bg-purple-500 dark:hover:bg-purple-400 hover:shadow-md transition duration-200 cursor-pointer "></tr>
+    </table>
+  </div>
   <!-- Paginator -->
   <mat-paginator [length]="total"
                  [pageSize]="limit"
                  [pageSizeOptions]="[5, 10, 20, 50]"
                  showFirstLastButtons
-                 (page)="onPageChange($event)">
+                 (page)="onPageChange($event)"
+                 class="mt-6 rounded-2xl dark:bg-violet-500">
   </mat-paginator>
 </div>

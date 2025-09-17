@@ -25,13 +25,13 @@ export class UserFormComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
-      name: ['', Validators.required],
+      name: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
       role: ['Viewer', Validators.required],
-      mobile: [''],
-      department: [''],
-      address: [''],
-      status: ['Active']
+      mobile: ['',[Validators.required, Validators.pattern(/^[0-9]{10}$/)]],
+      department: ['',Validators.required],
+      address: ['',[Validators.required, Validators.minLength(10)]],
+      status: ['Active', Validators.required]
     });
 
     this.userId = this.route.snapshot.paramMap.get('id');
@@ -41,6 +41,13 @@ export class UserFormComponent implements OnInit {
       });
     }
   }
+
+  isInvalid(controlName: string, errorType?: string): boolean {
+  const control = this.form.get(controlName);
+  if (!control) return false;
+  return control.touched && control.hasError(errorType || 'required');
+}
+
 
   save() {
     if (this.form.invalid) return;
